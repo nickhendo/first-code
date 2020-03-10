@@ -1,0 +1,25 @@
+Define LibPub maxmin()=
+Prgm
+DelVar answer
+DelVar function
+DelVar f
+DelVar t
+Request "What is the function?"f
+function:=(d/dx)(f)
+answer:=nSolve(function=0,x)
+setMode(5,2)
+Disp answer
+t:=(d^2/dx^2)(f)x=answer
+If t<0 Then
+  Disp "Maximum"
+  Disp "Maximum value occurs at "f|x=answer
+Else
+  If t>0 Then
+    Disp "Minimum"
+    Disp "Minimum value occurs at "f|x=answer
+  Else
+    Disp "Horizontal Point of Inflection"
+    Disp "HPOI occurs at "f|x=answer
+  EndIf
+EndIf
+EndPrgm

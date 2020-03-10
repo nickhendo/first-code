@@ -1,0 +1,63 @@
+Define LibPub recvel()=
+Prgm
+DelVar v
+DelVar obstim
+DelVar roctim
+DelVar galtim
+DelVar findis
+DelVar tchange
+DelVar mchange
+DelVar lchange
+DelVar increasem
+DelVar contrac
+DelVar energy
+DelVar renergy
+DelVar rlenergy
+DelVar speed
+Request "What is the recessional velocity?",r
+Request "What is the velocity of the rocket?",v
+Request "What is the initial distance?",d
+Request "What is the rest mass of the object?",m
+speed:=(v+r)/(1+v*r)
+obstim:=d/speed
+roctim:=obstim*sqrt(1-speed^2)
+tchange:=(1-roctim/obstim)*100
+findis:=d-obstim*r
+contrac:=d*sqrt(1-speed^2)
+lchange:=(1-contrac/d)*100
+increasem:=m/sqrt(1-speed^2)
+mchange:=(increasem/m)*100
+ener:=m*(3*10^8)^2
+rlenergy:=3*10^8*m*sqrt((3*10^8)^2+(v*3*10^8/(1-v^2)))
+energy:=rlenergy-ener
+If r>v Then
+  Disp "Destination will only be reached if time goes backwars"
+  Disp "V_RG: ",speed
+  Disp "Dilated Time: ",obstim
+  Disp "Proper Time: ",roctim
+  Disp "% Change: ",tchange*"% decrease"
+  Disp "Contracted Length: ",contrac
+  Disp "% Change: ",lchange*"% decrease"
+  Disp "Rest Mass: ",m
+  Disp "Mass Increase: ",increasm
+  Disp "% Change: ",mchange*"% increase"
+  Disp "Rest Energy: ",ener
+  Disp "Relativistic Energy: ",rlenergy
+  Disp "Energy Difference: ",energy
+  Disp "Final Distance",findis
+Else
+  Disp "V_RG: ",speed
+  Disp "Dilated Time: ",obstim
+  Disp "Proper Time: ",roctim
+  Disp "% Change: ",tchange*"% decrease"
+  Disp "Contracted Length: ",contrac
+  Disp "% Change: ",lchange*"% decrease"
+  Disp "Rest Mass: ",m
+  Disp "Mass Increase: ",increasm
+  Disp "% Change: ",mchange*"% increase"
+  Disp "Rest Energy: ",ener
+  Disp "Relativistic Energy: ",rlenergy
+  Disp "Energy Difference: ",energy
+  Disp "Final Distance",findis
+EndIf
+EndPrgm
